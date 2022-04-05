@@ -1,49 +1,98 @@
+const URL = 'http://localhost:4000'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'client',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    script: [{src: 'https://js.stripe.com/v3'}],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Author: M. Reiley,This is a mock fully functional e-commerce site that sells various coffee products and items' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: "/css/font-awesome/css/all.css"},
+      { rel: 'stylesheet', href: "/css/default.css"},    
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://go.nuxtjs.dev/bootstrap
+    'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
+
+    '@nuxtjs/auth',
+    '@nuxt/image'
+
   ],
+
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    presents: {
+      mainImage: {
+        modifiers: {
+          width: 50,
+          height: 50
+        }
+      }
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true,
+    baseURL: URL,
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/auth/login',
+            method: "post",  
+            propertyName: "token"
+          },
+          logout: true
+        }
+      }
+    }
+  },
+
+  proxy: {
+    "/api": URL
+  },
+
+  /*
+  ** Server Middleware
+  */
+  serverMiddleware: {
+    '/api': '~/api'
+  },
+
+  server: {
+    port: 7000,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
 }
