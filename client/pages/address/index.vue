@@ -126,7 +126,6 @@ export default {
         async onSetDefault(id) {
             try {
                 let response = await this.$axios.$put('/api/address/set/default', {id: id});    
-                console.log(response)
                 
                 if(response.success) {
                     this.message = response.message;

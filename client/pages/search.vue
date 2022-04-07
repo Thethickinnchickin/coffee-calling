@@ -11,41 +11,37 @@
 
               <div  class="mainResults">
                 <ul v-if="products.length > 0"  class="s-result-list">
-                  <h1>{{search}}</h1>
-                  <li class="s-result-item celwidget" v-for="product in products" :key="product._id">
-                    <div class="s-item-container">
+                  <li class="s-result-item celwidget my-5" v-for="product in products" :key="product._id">
+                    <div class="s-item-container mb-5">
                       <div>
                         <div class="row">
                           <!---image --->
-                          <div @click="addToBrowsingHistory(product)" class="col-sm-3 text-center">
-                            <nuxt-link @click="addToBrowsingHistory(product)" :to="`/products/${product.objectID}`" href="" class="a-link-normal">
-                              <img @click="addToBrowsingHistory(product)" class="img-fluid" :src="product.photo" alt="">
-                            </nuxt-link>
+                          <div class="col-sm-3 text-center">
+                            <img class="img-fluid" :src="product.photo" alt="Product Image">
                           </div>
 
                           <div class="col-sm-9">
                             <div class="a-row a-spacing-small">
                               <!--- Title and Date --->
-                              <nuxt-link @click="addToBrowsingHistory(product)" :to="`/products/${product.objectID}`" href="" class="a-link-normal">
-                                <h2 @click="addToBrowsingHistory(product)" class="a-size-medium">
-                                  {{product.title}}
+                              <nuxt-link  @click='addToBrowsingHistory(product)' :to="`/products/${product.objectID}`" class="a-link-normal">
+                                <button style="border: none; border-radius: 10px; background-color: white;" @click="addToBrowsingHistory(product)" class="a-size-medium">
+                                  <h3 class="a-text-bold">{{product.title}}</h3>
                                   <span class="a-letter-space"></span>
                                   <span class="a-letter-space"></span>
-                                </h2>
+                                </button>
                               </nuxt-link>
                             </div>
                             <!--Author's Name --->
                             <div class="a-row a-spacing-small">
                               <span class="a-size-small a-color-secondary">by</span>
                               <span class="a-size-small a-color-secondary">
-                                <a href="" class="a-link-normal a-text-normal" @click="addToBrowsingHistory(product)">{{product.owner.name}}</a>
+                                <nuxt-link :to="`/owner/${product.owner._id}`">
+                                  <a href="" class="a-link-normal a-text-normal">{{product.owner.name}}</a>
+                                </nuxt-link>
+
                               </span>
                             </div>
 
-                            <!---- Shipment --->
-                            <div class="a-row">
-                              <span class="a-size-small">Ships to USA</span>
-                            </div>
 
                             <div class="row">
                               <div class="col-sm-7">
@@ -72,7 +68,7 @@
                                 <div class="col-sm-5">
                                   <div class="a-row a-spacing-mini">
                                     <!----Star Ratings ---->
-                                    <no-ssr>
+                                    <!-- <no-ssr>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -85,7 +81,7 @@
                                                    >
 
                                       </star-rating>
-                                    </no-ssr>
+                                    </no-ssr> -->
                                   </div>
                                 </div>
 
@@ -95,7 +91,10 @@
                         </div>
                       </div>
                     </div>
+                    <hr>
                   </li>
+                    
+                  
                 </ul>
               <div v-else class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                   <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -117,14 +116,20 @@
     </main>
 </template>
 
+<style scoped>
+button:hover {
+  background-color: #A9A9A9;
+}
+</style>
+
 <script>
-import StarRating from "vue-star-rating";
+// import StarRating from "vue-star-rating";
 import FeaturedProduct from "~/components/FeaturedProduct"
 import { mapActions } from "vuex";
 
 export default {
   components: {
-    StarRating,
+    // StarRating,
     FeaturedProduct
   },
   watchQuery: ["title"],

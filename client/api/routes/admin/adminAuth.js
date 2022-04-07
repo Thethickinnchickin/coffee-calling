@@ -44,7 +44,7 @@ router.post('/auth/admin/login', async (req, res) => {
                 let token = jwt.sign(foundAdmin.toJSON(), process.env.ADMIN_SECRET, {
                     expiresIn: 604800 // 1 Week
                 })
-                console.log(token)
+        
 
                 
                 res.json({

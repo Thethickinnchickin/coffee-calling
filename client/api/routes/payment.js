@@ -23,6 +23,7 @@ function shipmentPrice(shipmentOption) {
 }
 
 
+
 router.post('/shipment', (req, res) => {
     let shipment;
     if(req.body.shipment === "fast") {

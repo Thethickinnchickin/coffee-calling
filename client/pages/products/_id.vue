@@ -15,7 +15,7 @@
                     </li>
                     <li>
                         <span class="a-list-item">
-                            <nux-link class="a-link-normal a-color-tertiary">{{product.title}}</nux-link>
+                            <nux-link class="a-link-normal a-text-bold a-color-tertiary">{{product.title}}</nux-link>
                         </span>
                     </li>
                 </ul>
@@ -36,14 +36,14 @@
                             <!---- Follow Author --->
                             <div class="authorFollow">
                                 <hr class="a-divider-normal"/>
-                                <h1 style="font-family: 'Courier New', monospace;" class="authorFollowHeading">Follow The Author</h1>
+                                <h1 style="font-family: 'Courier New', monospace;" class="authorFollowHeading a-text-bold">Follow The Author</h1>
                                 <div class="a-spacing-top-small">
                                     <div class="row">
                                         <!---- Author's image --->
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                                             <div class="smallAuthorImageContainer">
                                                 <nuxt-link :to="`/owner/${product.owner._id}`">
-                                                    <img style="width: 50%; height: 3px;"  alt="Product Image" :src="product.photo" class="img-fluid">
+                                                    <img style="width: 50%; height: 3px;"  alt="Product Image" :src="product.owner.photo" class="img-fluid">
                                                 </nuxt-link>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                             <!---- Product Title --->
                             <div class="titleDiv">
                                 <h1 class="productTitle">
-                                    <span class="largeTitle">{{product.title}}</span>
+                                    <span class="a-text-bold largeTitle">{{product.title}}</span>
                                 </h1>
                             </div>
                             <!---- Author's Name --->
@@ -99,7 +99,7 @@
 
                             <div class="reviewGroup">
                                 <!----Star Ratings ---->
-                                <no-ssr>
+                                <!-- <no-ssr>
                                     <star-rating :rating="product.averageRating"
                                                 :round-start-rating="false"
                                                 :show-rating="false"
@@ -111,7 +111,7 @@
                                                 :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                 >
                                     </star-rating>
-                                </no-ssr>
+                                </no-ssr> -->
                             </div>
                             <hr style="margin-top: 10px;" />
 
@@ -229,7 +229,7 @@
                                     <div class="authorContent">
                                         <div class="authorImageSingle">
                                             <span>
-                                                <img height="2"  alt="Product Image" :src="product.photo" class="img-fluid">
+                                                <img height="2"  alt="Product Image" :src="product.owner.photo" class="img-fluid">
                                             </span>
                                         </div>
                                     </div>
@@ -237,7 +237,7 @@
                                 <!------ Author's about --->        
                                 <div class="col-md-10 col-sm-8 col-8 pl-0">
                                     <div class="mainContent">
-                                        <h3 style="font-family: 'Courier New', monospace;">Biography</h3>
+                                        <h3 class="a-text-bold" style="font-family: 'Courier New', monospace;">Biography</h3>
                                         <div id="authorBio">{{product.owner.about}}</div>
                                     </div>
                                 </div>
@@ -278,13 +278,13 @@ button #product {
 
 <script>
 import CustomerReviews from "~/components/CustomersReviews"
-import StarRating from "vue-star-rating";
+// import StarRating from "vue-star-rating";
 import { mapActions } from "vuex";
 export default {
 
     components: {
         CustomerReviews,
-        StarRating
+        // StarRating
     },
 
     async asyncData({$axios, params}) {
@@ -298,7 +298,6 @@ export default {
                 singleProduct,
                 manyReviews,
             ]);
-            console.log(productResponse)
             let following = false;
             if(productResponse.data.isFollowing != null) {
                 following = productResponse.data.isFollowing

@@ -10,22 +10,22 @@
 
                     </div>
 
-                    <form class="mt-4">
+                    <form @submit.prevent="userLogin" class="mt-4">
                         <div class="a-box a-spacing-extra-large">
                             <div class="a-box-inner">
                                 <h1 class="a-spacing-small">Create Account</h1>
 
                                 <!--- Your Email --->
                                 <div class="a-row a-spacing-base">
-                                    <label for="ap_customer_name" class="a-form-label">Your Email</label>
-                                    <input v-model="email" type="email"
+                                    <label for="email" class="a-form-label">Your Email</label>
+                                    <input v-model="email" type="email" name="email"
                                         id="ap_customer_name" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                 </div>
                                 <!--- Your Password --->
                                 <div class="a-row a-spacing-base">
-                                    <label for="ap_customer_name" class="a-form-label">Your Password</label>
-                                    <input v-model="password" type="password"
+                                    <label for="password" class="a-form-label">Your Password</label>
+                                    <input v-model="password" name="password" type="password"
                                         id="ap_customer_name" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                     <div class="a-alert-container">
@@ -36,7 +36,7 @@
                                 <div class="a-row a-spacing-extra-large mb-4">
                                     <div class="a-row a-spacing-extra-large mb-4">
                                         <span class="mt-auto">
-                                            <span style="width: 100%" id="button" class="btn mt-auto" @click='onLogin'>Sign In</span>
+                                            <button style="width: 100%" id="button" class="btn mt-auto" type="submit">Sign In</button>
                                         </span>
                                     </div>
                                 </div>
@@ -79,21 +79,20 @@ export default {
     middleware: "auth",
     auth: "guest",
     data() {
-        return{
-            email: "",
-            password: ""
+        return {
+            email: '',
+            password: ''                
         }
 
     },
     methods: {
-        async onLogin() {
+        async userLogin() {
             try {
-                await this.$auth.loginWith("local", {
-                    data: {
-                        email: this.email,
-                        password: this.password
-                    }
-                })
+
+                let response = await this.$auth.loginWith('local', {data: {email: this.email, password: this.password}})
+                console.log(response)
+
+                
 
                 this.$router.push("/");                   
 

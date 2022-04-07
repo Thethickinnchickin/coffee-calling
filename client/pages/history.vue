@@ -31,12 +31,6 @@
                                 <a href="" class="a-link-normal a-text-normal">{{product.owner.name}}</a>
                               </span>
                             </div>
-
-                            <!---- Shipment --->
-                            <div class="a-row">
-                              <span class="a-size-small">Ships to USA</span>
-                            </div>
-
                             <div class="row">
                               <div class="col-sm-7">
                                 <!--- Price --->
@@ -47,7 +41,7 @@
                                       <span class="sx-price sx-price-large">
                                         <sup class="sx-price-currency">$</sup>
                                         <span class="sx-price-whole">{{product.price}}</span>
-                                        <sup class="sx-price-fractional">00</sup>
+
                                       </span>
                                     </span>
                                   </a>

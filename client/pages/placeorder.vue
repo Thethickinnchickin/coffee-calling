@@ -203,7 +203,7 @@
                       </div>
                       <div class="col-sm-6 text-right">
                         <!-- Total Price with Shipping -->
-                        <div class="a-color-price a-size-medium a-text-bold">USD {{getCartTotalPriceWithShipping}}</div>
+                        <div class="a-color-price a-size-medium a-text-bold">USD ${{getCartTotalPriceWithShipping}}</div>
                       </div>
                     </div>
                   </div>

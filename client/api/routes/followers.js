@@ -26,7 +26,6 @@ router.put('/followers/:ownerID', verifyToken, async (req, res) => {
             console.log("Already following user")
         }        
     } catch(err) {
-        console.log(err.message)
         res.status(500).json({
             success: false,
             message: err.message

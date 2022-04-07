@@ -23,14 +23,14 @@
 <script>
 import MerchandiseProductDisplay from "~/components/MerchandiseProductDisplay"
 import TopProduct from "~/components/FeaturedProduct";
-import StarRating from "vue-star-rating";
+// import StarRating from "vue-star-rating";
 import { mapActions } from "vuex";
 
 export default {
   components: {
     MerchandiseProductDisplay,
     TopProduct,
-    StarRating
+    // StarRating
   },
 
   async asyncData({$axios}) {

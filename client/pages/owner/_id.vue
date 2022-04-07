@@ -1,7 +1,7 @@
 <template>
                     <div class="books-entity-teaser">
                     <div class="bucket mt-5 mb-5">
-                        <h2 class="mb-5 ml-5"><b>More about the Owner</b></h2>
+                        <h2 class="mb-5 ml-5"><b class="a-text-bold">{{owner.name}}</b></h2>
                         <div class="content">
                             <div class="row">
                                 <!------ Author's photo and button --->
@@ -40,7 +40,6 @@
 <script>
 export default {
     async asyncData({$axios, params}) {
-        console.log(params)
         let response = await $axios.$get(`/api/owners/${params.id}`);
 
         return {

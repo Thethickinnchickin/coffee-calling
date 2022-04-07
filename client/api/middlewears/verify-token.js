@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
     }
 
     if(token) {
-        jwt.verify(token, process.env.SECRET, (err, decoded) => {
+        jwt.verify(token, "123123544444324151645252asdfasdfasdfafasysbgfdd", (err, decoded) => {
             if (err) {
                 res.json({
                     success: false,

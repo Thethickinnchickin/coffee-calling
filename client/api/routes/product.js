@@ -4,7 +4,9 @@ const Product = require('../models/product');
 
 const upload = require('../middlewears/upload-photo');
 
-const User = require('../models/user')
+const User = require('../models/user');
+const verifyToken = require('../middlewears/verify-token');
+const verifyTokenSafe = require('../middlewears/verify-token-safe');
 
 
 // GET request - get all products
@@ -47,14 +49,13 @@ router.get("/top/product", async(req, res) => {
 })
 
 // GET request - get a single product
-router.get('/product/:id', async (req, res) => {
+router.get('/product/:id', verifyTokenSafe, async (req, res) => {
 try {
     let isFollowing = false;
     let product = await Product.findOne({_id: req.params.id}).populate('category owner reviews.user').populate('reviews', 'rating').exec();
-    console.log(product)
 
 
-    if(req.decoded != undefined) {
+    if(req.decoded !== undefined) {
         let foundUser = await User.findById({_id: req.decoded._id}).populate('following')
         for(let i = 0; i < foundUser.following.length; i++) {
             if(foundUser.following[i]._id.equals(product.owner._id)) {

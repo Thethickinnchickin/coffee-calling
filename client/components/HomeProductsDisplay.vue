@@ -11,16 +11,17 @@
                     <div class="border-0 card">
                       <div class="card-body d-flex flex-column">
                         <span>
-                          <nuxt-img sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw" alt="Product Photo" :src="`${product.photo}`"/>                          
+                          <img height="75" alt="Product Photo" :src="`${product.photo}`"/>                          
                         </span>
 
 
-                        <h2 style="height: 30px; font-size: 20px" class="card-title my-2">{{product.title}}</h2>
+                        <h2 style="height: 30px; font-size: 20px" class="card-title my-2 a-text-bold">{{product.title}}</h2>
+                        <h3 style="font-size: 15px;" class="card-text mt-2">${{product.price}}</h3>
                           <!-- -- Ratings -- -->
                             <div class="col-sm-5 my-3">
                               <div class="a-row a-spacing-mini">
                                 <!----Star Ratings ---->
-                                <!-- <no-client>
+                                <!-- <no-ssr>
                                   <star-rating :rating="product.averageRating"
                                                 :show-rating="false"
                                                 :round-start-rating="false"
@@ -34,7 +35,7 @@
                                                 :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                 >
                                   </star-rating>
-                                </no-client>  -->
+                                </no-ssr>  -->
                               </div>
                             </div>
                         <p class="card-text">{{product.description}}</p>
@@ -49,9 +50,9 @@
                 </div>
               </div>
             </div>
-            <nuxt-link to="/coffee" class="col-lg-1 pull-right">            
-            <button  id="seeMoreCoffee" >
-                See More Coffee
+            <nuxt-link :to="`/${link}`" class="col-lg-1 pull-right">            
+            <button  id="seeMore" >
+                See More {{category}}
             </button>
             </nuxt-link>
 
@@ -76,7 +77,7 @@
     background-color: #d0e6ff;
     color:#2e0000;
   }
-  #seeMoreCoffee, #seeMoreCoffeeProducts, #seeMoreMerchandise {
+  #seeMore {
     border-radius: 9999em 9999em 9999em 9999em;
     margin-top: 50px;
     width: 100px;
@@ -110,7 +111,7 @@ export default {
     components: {
       // StarRating
     },
-    props: ["category", "products"],
+    props: ["category", "products", "link"],
     
     methods: {
     ...mapActions(["addToBrowsingHistory"])

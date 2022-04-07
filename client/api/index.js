@@ -21,8 +21,9 @@ mongoose.connect(
 
 //Middlewears
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
+
 
 
 //Getting Api Routes
@@ -65,8 +66,11 @@ app.use('/api', CofeeProductsHomeRoutes);
 app.use('/api', FollowingRoutes);
 
 
+
+
+
 //Create app listening on port 3000 on localhost
-app.listen(4000, (err) => {
+app.listen(5000, (err) => {
     if (err) {
         console.log(err)
     } else {

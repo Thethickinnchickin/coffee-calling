@@ -1,6 +1,8 @@
-const URL = 'http://localhost:4000'
+const URL = 'http://localhost:5000'
+import express from 'express'
 
 export default {
+  srr: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'client',
@@ -42,6 +44,7 @@ export default {
     '@nuxtjs/auth',
     '@nuxt/image'
 
+
   ],
 
   image: {
@@ -69,14 +72,28 @@ export default {
         endpoints: {
           login: {
             url: '/api/auth/login',
-            method: "post",  
-            propertyName: "token"
+            method: 'post',
+            propertyName:'token',
+            required: true
+          },  
+          user:{
+            url: '/api/auth/user',
+            method: 'get',
+            propertyName: 'user'
           },
           logout: true
         }
       }
     }
   },
+
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  pwa: {
+    manifest: {
+      lang: 'en'
+    }
+  },
+
 
   proxy: {
     "/api": URL
@@ -85,13 +102,17 @@ export default {
   /*
   ** Server Middleware
   */
-  serverMiddleware: {
-    '/api': '~/api'
-  },
+  serverMiddleware: 
+  ['~/api/index.js'],
 
   server: {
-    port: 7000,
+    port: 8000,
   },
+
+  router: {
+    base: '/'
+  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

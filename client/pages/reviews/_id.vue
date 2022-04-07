@@ -119,11 +119,11 @@
 </style>
 
 <script>
-import StarRating from "vue-star-rating";
+// import StarRating from "vue-star-rating";
 
 export default {
     components: {
-        StarRating
+        // StarRating
     },
     async asyncData({ $axios, params}) {
         try{

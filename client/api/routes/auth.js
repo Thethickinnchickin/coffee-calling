@@ -4,8 +4,9 @@ const verifyToken = require('../middlewears/verify-token')
 
 const jwt = require('jsonwebtoken')
 
+
 //Route to sign up for the app
-router.post('/auth/signup', async (req, res) => {
+router.post('/auth/user/signup', async (req, res) => {
     if (!req.body.email || !req.body.password) {
         res.json({success: false, message: "Please enter email or password"});
     } else {
@@ -15,7 +16,7 @@ router.post('/auth/signup', async (req, res) => {
             newUser.email = req.body.email;
             newUser.password = req.body.password
             await newUser.save();
-            let token = jwt.sign(newUser.toJSON(), process.env.SECRET, {
+            let token = jwt.sign(newUser.toJSON(), "123123544444324151645252asdfasdfasdfafasysbgfdd", {
                 expiresIn: 604000 //1 Week
             })
 
@@ -31,20 +32,25 @@ router.post('/auth/signup', async (req, res) => {
             })
         }
     }
+
+    res.json({
+        success: true,
+        message: "hey there"
+    })
 })
 
 //Login Route
 router.post("/auth/login", async (req, res) => {
     try {
-        let foundUser = await User.findOne({email: req.body.email });
+        let foundUser = await User.findOne({email: 'matt@email.com' })
         if (!foundUser) {
             res.status(403).json({
                 success: false,
                 message: "Authentication failed, User not found"
             })
         } else {
-            if(foundUser.comparePassword(req.body.password)) {
-                let token = jwt.sign(foundUser.toJSON(), process.env.SECRET, {
+            if(foundUser.comparePassword('Matt1234')) {
+                let token = jwt.sign(foundUser.toJSON(), "123123544444324151645252asdfasdfasdfafasysbgfdd", {
                     expiresIn: 604800 // 1 week
                 })
 

@@ -16,6 +16,9 @@ const OrderSchema = new Schema({
         }
     ],
     estimatedDelivery: String
+},
+{
+    timestamps: true
 })
 
 //Plugin to get product information on populating data

@@ -104,6 +104,10 @@ export const getters = {
         state.cart.map(product => {
             total += product.price * product.quantity;           
         });
+        total = (total).toLocaleString(
+            undefined,
+            {minimumFractionDigits: 2}
+        )
         return total;
     },
     getCartTotalPriceWithShipping(state) {
@@ -111,8 +115,12 @@ export const getters = {
         state.cart.map(product => {
             total += product.quantity * product.price
         });
+        total = (total + state.shippingPrice).toLocaleString(
+            undefined,
+            {minimumFractionDigits: 2}
+        )
 
-        return total + state.shippingPrice;
+        return total;
     },
     getEstimatedDelivery(state) {
         return state.shippingEstimatedDelivery;

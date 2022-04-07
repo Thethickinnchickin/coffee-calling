@@ -1,45 +1,41 @@
 <template>
-    <ul>
-        <li class="s-result-item celwidget" v-for="product in products" :key="product._id">
-                    <div class="s-item-container mt-5">
+                <ul v-if="products.length > 0"  class="s-result-list">
+                  <li class="s-result-item celwidget my-5" v-for="product in products" :key="product._id">
+                    <div class="s-item-container mb-5">
                       <div>
                         <div class="row">
                           <!---image --->
-                          <div @click="addToBrowsingHistory(product)" class="col-sm-3 text-center">
-                            <nuxt-link :to="`/products/${product._id}`">
-                              <img height="150" style="width:150px"  :src="product.photo" alt="Product Image">
-                            </nuxt-link>
+                          <div class="col-sm-3 text-center">
+                            <img class="img-fluid" :src="product.photo" alt="Product Image">
                           </div>
 
                           <div class="col-sm-9">
                             <div class="a-row a-spacing-small">
                               <!--- Title and Date --->
-                              <nuxt-link style="color:#000080"  :to="`/products/${product._id}`"  class="a-link-normal">
-                                <h2 @click="addToBrowsingHistory(product)" class="a-size-medium">
-                                  {{product.title}}
+                              <nuxt-link  @click='addToBrowsingHistory(product)' :to="`/products/${product._id}`" class="a-link-normal">
+                                <button style="border: none; border-radius: 10px; background-color: white;" @click="addToBrowsingHistory(product)" class="a-size-medium">
+                                  <h3 class="a-text-bold">{{product.title}}</h3>
                                   <span class="a-letter-space"></span>
                                   <span class="a-letter-space"></span>
-                                </h2>
+                                </button>
                               </nuxt-link>
                             </div>
                             <!--Author's Name --->
                             <div class="a-row a-spacing-small">
                               <span class="a-size-small a-color-secondary">by</span>
                               <span class="a-size-small a-color-secondary">
-                                <nuxt-link :to="`/owner/${product.owner._id}`" style="color:#000080" class="a-link-normal a-text-normal">{{product.owner.name}}</nuxt-link>
-                              </span>
-                            </div>
+                                <nuxt-link :to="`/owner/${product.owner._id}`">
+                                  <a href="#" class="a-link-normal a-text-normal">{{product.owner.name}}</a>
+                                </nuxt-link>
 
-                            <!---- Shipment --->
-                            <div class="a-row">
-                              <span class="a-size-small"></span>
+                              </span>
                             </div>
 
                             <div class="row">
                               <div class="col-sm-7">
                                 <!--- Price --->
                                 <div class="a-row a-spacing-none">
-                                  <nuxt-link to="/coffee" class="a-link-normal a-text-normal">
+                                  <a href="#" class="a-link-normal a-text-normal">
                                     <span class="a-offscreen">${{product.price}}</span>
                                     <span class="a-color-base sx-zero-spacing">
                                       <span class="sx-price sx-price-large">
@@ -47,17 +43,20 @@
                                         <span class="sx-price-whole">{{product.price}}</span>
                                       </span>
                                     </span>
-                                  </nuxt-link>
+                                  </a>
+                                  <span class="a-letter-space"></span>
                                 </div>
 
+  
                                 <hr>
-                            
+                             
+              
 
-                                <!-- -- Ratings -- -->
+                                <!---- Ratings ---->
                                 <div class="col-sm-5">
                                   <div class="a-row a-spacing-mini">
                                     <!----Star Ratings ---->
-                                    <no-ssr>
+                                    <!-- <no-ssr>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -68,8 +67,9 @@
                                                    :star-size="18"
                                                    :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                    >
+
                                       </star-rating>
-                                    </no-ssr> 
+                                    </no-ssr> -->
                                   </div>
                                 </div>
 
@@ -79,13 +79,19 @@
                         </div>
                       </div>
                     </div>
+                    <hr>
                   </li>
-    </ul>
+                    
+                  
+                </ul>
 </template>
 
 <style scoped>
 img {
   width: 50%
+}
+a {
+  color: #0047AB;
 }
 </style>
 

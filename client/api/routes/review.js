@@ -32,7 +32,10 @@ router.post("/reviews/:productID", verifyToken, upload.single("photo"), async (r
 
         
     } catch (err) {
-        console.log(err)
+        res.json({
+            success: false,
+            message: err.message
+        })
     }
 })
 
@@ -46,7 +49,6 @@ router.get("/reviews/:productID", async (req, res) => {
             reviews: product
         })
     } catch (err) {
-        console.log(err)
         res.json({
             success: false,
             message: err.message

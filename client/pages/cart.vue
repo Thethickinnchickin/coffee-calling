@@ -65,7 +65,7 @@
                           <p class="a-spacing-small">
                             <span
                               class="a-size-medium a-color-price sc-price sc-white-space-nowrap sc-product-price sc-price-sign a-text-bold"
-                            >${{product.price * product.quantity}}</span>
+                            >${{getCartTotalPrice}}</span>
                           </p>
                         </div>
                       </div>
@@ -104,11 +104,13 @@
                     </p>
                   </div>
                   <div class="mt-3">
-                    <span  v-if="getCartLength > 0" class="a-spacing-small mt-3">
-                      <span style="background-color: #2e0000;" class="a-button-inner">
-                        <nuxt-link to="/placeorder" style="color: white;" class="a-button-text">Proceed to checkout</nuxt-link>
+                    <nuxt-link to="/placeorder">
+                      <span  v-if="getCartLength > 0" class="a-spacing-small mt-3">
+                        <span style="background-color: #2e0000;" class="a-button-inner">
+                          <span to="/placeorder" style="color: white;" class="a-button-text">Proceed to checkout</span>
+                        </span>
                       </span>
-                    </span>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
@@ -135,7 +137,7 @@
                                 <a href="#" class="a-size-small a-link-child">{{product.owner.name}}</a>
                               </div>
                               <div class="a-icon-row a-spacing-none">
-                                    <no-ssr>
+                                    <!-- <no-ssr>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -147,7 +149,7 @@
                                                    :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                    >
                                       </star-rating>
-                                    </no-ssr> 
+                                    </no-ssr>  -->
 
                               </div>
                               <div class="a-spacing-top-micro">

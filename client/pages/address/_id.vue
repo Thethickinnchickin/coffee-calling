@@ -170,8 +170,8 @@
 export default {
   
   async asyncData({ $axios, params }) {
-    let countries = await $axios.$get('/api/countries');
-    let address = await $axios.$get(`/api/address/${params.id}`);
+    let countries = $axios.$get('/api/countries');
+    let address = $axios.$get(`/api/address/${params.id}`);
 
     let [countriesResponse, addressResponse] = await Promise.all([
         countries,
@@ -215,10 +215,10 @@ export default {
         };
 
 
-        const response = this.$axios.$put(`/api/address/${id}`, addressData);
-
+        let response = await this.$axios.$put(`/api/address/${id}`, addressData);
+        
      
-        this.$router.push("/address");
+        this.$router.back();
         
 
       } catch (err) {

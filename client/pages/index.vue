@@ -4,13 +4,13 @@
         <div class="ListingPage">
         <div class="container-fluid">
           <FeaturedProduct :topProduct="topProduct.product"/>
-          <HomeProductsDisplay :products="coffee" category="Coffee"/>
+          <HomeProductsDisplay :products="coffee" category="Coffee" link="coffee"/>
           <hr>
 
-          <HomeProductsDisplay :products="coffeeProducts" category="Coffee Products"/>
+          <HomeProductsDisplay :products="coffeeProducts" category="Coffee Products" link="coffeeProducts"/>
           <hr>
 
-          <HomeProductsDisplay :products="merchandise" category="Merchandise"/>
+          <HomeProductsDisplay :products="merchandise" category="Merchandise" link="merchandise"/>
           <hr>
         </div>        
       </div>
