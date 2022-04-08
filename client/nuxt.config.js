@@ -42,7 +42,6 @@ export default {
     '@nuxtjs/pwa',
 
     '@nuxtjs/auth',
-    '@nuxt/image'
 
 
   ],
