@@ -2,7 +2,6 @@
 
 const express = require('express')
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express()
@@ -12,6 +11,7 @@ mongoose.connect(
     process.env.DATABASE,
     {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
         if (err) {
+            console.log($PORT)
             console.log(err)
         } else {
             console.log("You have connected to the database");
@@ -70,7 +70,7 @@ app.use('/api', FollowingRoutes);
 
 
 //Create app listening on port 3000 on localhost
-app.listen(5000, (err) => {
+app.listen(process.env.HOST, (err) => {
     if (err) {
         console.log(err)
     } else {
