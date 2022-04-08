@@ -1,4 +1,4 @@
-const URL = process.env.PORT
+const URL = process.env.$PORT
 import express from 'express'
 
 export default {
