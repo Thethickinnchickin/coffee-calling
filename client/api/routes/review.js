@@ -3,8 +3,7 @@ const Review = require('../models/review');
 const Product = require('../models/product');
 const upload = require('../middlewears/upload-photo');
 const verifyToken = require('../middlewears/verify-token')
-const dotenv = require('dotenv');
-dotenv.config({path: './.env'})
+
 
 
 //Route that post review to product from user
@@ -21,14 +20,13 @@ router.post("/reviews/:productID", verifyToken, upload.single("photo"), async (r
 
         await Product.findOneAndUpdate({_id: req.params.productID},{ $push: { rating: review.rating, reviews: review._id }});
         
-        const savedReview = await review.save();
+        await review.save();
 
-        if(savedReview) {
-            res.json({
-                success: true,
-                review: review
-            })            
-        }
+        res.json({
+            success: true,
+            review: review
+        })            
+        
 
         
     } catch (err) {

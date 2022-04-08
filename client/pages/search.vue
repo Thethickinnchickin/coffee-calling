@@ -68,7 +68,7 @@
                                 <div class="col-sm-5">
                                   <div class="a-row a-spacing-mini">
                                     <!----Star Ratings ---->
-                                    <!-- <no-ssr>
+                                    <no-ssr>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -81,7 +81,7 @@
                                                    >
 
                                       </star-rating>
-                                    </no-ssr> -->
+                                    </no-ssr>
                                   </div>
                                 </div>
 
@@ -123,13 +123,13 @@ button:hover {
 </style>
 
 <script>
-// import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating";
 import FeaturedProduct from "~/components/FeaturedProduct"
 import { mapActions } from "vuex";
 
 export default {
   components: {
-    // StarRating,
+    StarRating,
     FeaturedProduct
   },
   watchQuery: ["title"],
@@ -144,7 +144,7 @@ export default {
         topProduct: topProduct
       }
     } catch (err) {
-      console.log(err);
+      return
     }
   },
   methods: {

@@ -144,6 +144,12 @@
   <!--/MAIN-->
 </template>
 
+<style scoped>
+a {
+  color: #0047AB;
+}
+</style>
+
 
 <script>
 
@@ -194,7 +200,7 @@ export default {
         
 
       } catch (err) {
-        console.log(err);
+        return
       }
     }
   }

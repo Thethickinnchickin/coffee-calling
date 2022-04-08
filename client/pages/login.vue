@@ -19,14 +19,14 @@
                                 <div class="a-row a-spacing-base">
                                     <label for="email" class="a-form-label">Your Email</label>
                                     <input v-model="email" type="email" name="email"
-                                        id="ap_customer_name" 
+                                        id="email" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                 </div>
                                 <!--- Your Password --->
                                 <div class="a-row a-spacing-base">
                                     <label for="password" class="a-form-label">Your Password</label>
                                     <input v-model="password" name="password" type="password"
-                                        id="ap_customer_name" 
+                                        id="password" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                     <div class="a-alert-container">
                                         <div class="a-alert-content">Password must be at least 6 characters</div>
@@ -89,15 +89,14 @@ export default {
         async userLogin() {
             try {
 
-                let response = await this.$auth.loginWith('local', {data: {email: this.email, password: this.password}})
-                console.log(response)
+                await this.$auth.loginWith('local', {data: {email: this.email, password: this.password}})
 
                 
 
                 this.$router.push("/");                   
 
             } catch (err) {
-                console.log(err);
+                return
             }
         }
     }

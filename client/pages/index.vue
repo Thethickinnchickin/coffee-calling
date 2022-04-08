@@ -22,22 +22,17 @@
 import FeaturedProduct from "~/components/FeaturedProduct";
 import HomeProductsDisplay from "~/components/HomeProductsDisplay";
 import { mapActions } from "vuex";
-
 export default {
   components: {
     FeaturedProduct,
     HomeProductsDisplay
   },
-
   async asyncData({$axios}) {
     try {
       let coffee = await $axios.$get('/api/home/coffee');
-
       let merchandise = await $axios.$get('/api/merchandise');
       let coffeeProducts = await $axios.$get('/api/coffee/products')
       let topProduct = await $axios.$get('/api/top/product')
-
-
       
       return {
         coffee: coffee.products,
@@ -54,5 +49,3 @@ export default {
   }
 }
 </script>
-
-

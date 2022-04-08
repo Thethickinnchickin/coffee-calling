@@ -14,7 +14,7 @@
                               <!--- Title and Date --->
                               <nuxt-link  @click='addToBrowsingHistory(product)' :to="`/products/${product._id}`" class="a-link-normal">
                                 <button style="border: none; border-radius: 10px; background-color: white;" @click="addToBrowsingHistory(product)" class="a-size-medium">
-                                  <h3 class="a-text-bold">{{product.title}}</h3>
+                                  <h1 style="font-size: 20px" class="a-text-bold">{{product.title}}</h1>
                                   <span class="a-letter-space"></span>
                                   <span class="a-letter-space"></span>
                                 </button>
@@ -56,7 +56,7 @@
                                 <div class="col-sm-5">
                                   <div class="a-row a-spacing-mini">
                                     <!----Star Ratings ---->
-                                    <!-- <no-ssr>
+                                    <client-only>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -69,7 +69,7 @@
                                                    >
 
                                       </star-rating>
-                                    </no-ssr> -->
+                                    </client-only>
                                   </div>
                                 </div>
 
@@ -93,10 +93,20 @@ img {
 a {
   color: #0047AB;
 }
+h1 {
+  font-size: 20px;
+  font-family: 'Courier New', monospace;
+}
 </style>
 
 <script>
+import StarRating from "vue-star-rating"
+
+
 export default {
+  components: {
+    StarRating
+  },
     props: ["products", "category"]
 }
 </script>

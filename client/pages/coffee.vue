@@ -22,14 +22,14 @@
 <script>
 import ProductPageDisplay from "~/components/ProductPageDisplay";
 import TopProduct from "~/components/FeaturedProduct";
-// import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating";
 import { mapActions } from "vuex";
 
 export default {
   components: {
     ProductPageDisplay,
     TopProduct,
-    // StarRating
+    StarRating
   },
 
   async asyncData({$axios}) {
@@ -39,7 +39,7 @@ export default {
         products: response.products
       }
     } catch (err) {
-      console.log(err);
+      return
     }
   },
   methods: {

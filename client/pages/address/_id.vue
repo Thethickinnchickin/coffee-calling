@@ -33,14 +33,7 @@
             </div>
             <div class="a-section">
               <h2>Update address</h2>
-              <div class="a-section a-spacing-none a-spacing-top-small">
-                <b>
-                  Or pick up your packages at your convenience from our self-service locations. To add an Amazon Pickup Point or Locker, click
-                  <a
-                    href="#"
-                  >here</a>.
-                </b>
-              </div>
+
               <!-- Error Message -->
               <div class="a-section a-spacing-none a-spacing-top-small">
                 <b></b>
@@ -128,23 +121,6 @@
                   </div>
                   <div class="a-spacing-top-medium"></div>
                   <hr />
-                  <div class="a-spacing-top-medium">
-                    <span>
-                      <b>Make sure your address is correct</b>
-                    </span>
-                  </div>
-                  <div>
-                    <span>If the address contains typos or other errors, your package may be undeliverable.</span>
-                  </div>
-                  <div class="a-spacing-top-small">
-                    <span>
-                      <a href="#">Tips for entering addresses</a>
-                    </span>
-                    <span>|</span>
-                    <span>
-                      <a href="#">APO/FPO address tips {{address.country}}</a>
-                    </span>
-                  </div>
                   <div class="a-spacing-top-large">
                     <span class="a-button-register">
                       <span class="a-button-inner">
@@ -165,6 +141,13 @@
   <!--/MAIN-->
 </template>
 
+
+<style scoped>
+a {
+  
+  color: #0047AB;
+}
+</style>
 
 <script>
 export default {
@@ -222,7 +205,7 @@ export default {
         
 
       } catch (err) {
-        console.log(err);
+        return 
       }
     }
   }

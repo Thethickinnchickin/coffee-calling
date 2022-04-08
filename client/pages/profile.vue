@@ -76,7 +76,7 @@ export default {
         
                 }
             } catch (err) {
-                console.log(err);
+                return
             }
         },
         async onLogOut() {

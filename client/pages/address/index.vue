@@ -51,10 +51,10 @@
                           <div  class="a-spacing-small">
                             <ul  class="a-unordered-list a-nostyle a-vertical">
                               <li>
-                                <h5>
+                                <h3>
                                   <!-- Address Fullname -->
                                   <b>{{address.fullName}}</b>
-                                </h5>
+                                </h3>
                               </li>
                               <!-- Address street address -->
                               <li>{{address.streetAddress}}</li>
@@ -119,7 +119,6 @@ export default {
                 } 
             } catch (err) {
                 this.message = err.message;
-                console.log(err);
             }
 
         },
@@ -134,7 +133,6 @@ export default {
                
             } catch (err) {
                 this.message = err.message
-                console.log(err);
             }
 
 

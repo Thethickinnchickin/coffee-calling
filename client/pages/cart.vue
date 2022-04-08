@@ -137,7 +137,7 @@
                                 <a href="#" class="a-size-small a-link-child">{{product.owner.name}}</a>
                               </div>
                               <div class="a-icon-row a-spacing-none">
-                                    <!-- <no-ssr>
+                                    <no-ssr>
                                       <star-rating :rating="product.averageRating"
                                                    :show-rating="false"
                                                    :round-start-rating="false"
@@ -149,7 +149,7 @@
                                                    :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                    >
                                       </star-rating>
-                                    </no-ssr>  -->
+                                    </no-ssr> 
 
                               </div>
                               <div class="a-spacing-top-micro">

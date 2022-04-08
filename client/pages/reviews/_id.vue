@@ -28,10 +28,9 @@
               <h2 class="a-spacing-base">Overall Rating</h2>
               <div class="a-row">
                 <!-- Rating -->
-                <no-ssr>
+                <client-only>
                     <star-rating v-model="rating"></star-rating>                    
-                </no-ssr>
-
+                </client-only>
               </div>
               <div class="a-row a-spacing-top-large">
                 <h2>Add photo or video</h2>
@@ -119,11 +118,11 @@
 </style>
 
 <script>
-// import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating";
 
 export default {
     components: {
-        // StarRating
+      StarRating
     },
     async asyncData({ $axios, params}) {
         try{
@@ -133,7 +132,7 @@ export default {
                 product: response.product
             }
         } catch (err) {
-            console.log(err);
+            return 
         }
 
     },
@@ -157,23 +156,23 @@ export default {
         },
         async onAddReview() {
             try {
-                 let data = new FormData();
-                 data.append("headline", this.headline);
-                 data.append("body", this.body);
-                 data.append("rating", this.rating);
-                 data.append("photo", this.selectedFile, this.selectedFile.name);
+              let data = new FormData();
+              data.append("headline", this.headline);
+              data.append("body", this.body);
+              data.append("rating", this.rating);
+              data.append("photo", this.selectedFile, this.selectedFile.name);
+              console.log(this.$route.params.id)
+              await this.$axios.$post(`/api/reviews/${this.$route.params.id}`, data);
+                
+
+
+              this.$router.push(`/products/${this.$route.params.id}`);                     
                  
-                 let response = await this.$axios.$post(`/api/reviews/${this.$route.params.id}`, data);
-
-
-                 if (response.success) {
-                     this.$router.push(`/products/${this.$route.params.id}`);                     
-                 }
 
 
 
             } catch (err) {
-                console.log(err);
+                return
             }
         }
     }

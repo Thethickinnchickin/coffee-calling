@@ -10,7 +10,7 @@
           </span>
           <div class="cr-widget-ACR">
             <span>
-                <!-- <no-client>
+                <no-client>
                   <star-rating :rating="product.averageRating"
                                 :show-rating="false"
                                 :round-start-rating="false"
@@ -22,7 +22,7 @@
                                 :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                 >
                   </star-rating>
-                </no-client>  -->
+                </no-client> 
               <span>
                 {{product.averageRating}} out of 5 stars
                 <i class="a-icon a-icon-popover"></i>
@@ -193,17 +193,12 @@
         <div class="col-lg-6 col-md-7 col-sm-12">
           <div class="cr-widget-focalreviews">
             <div class="card-padding">
-              <div class="review-header">
-                <h3>
-                  <span class="a-size-base">Showing 1-8 of {{product.reviews.length}} reviews</span>
-                </h3>
-              </div>
               <div class="review-sort-type">
                 <span class="a-dropdown-container">
                   <span class="a-button a-button-dropdown">
                     <span class="a-button-inner">
                       <span class="a-button-text">
-                        <span class="a-dropdown-prompt">Top Reviews</span>
+                        <span class="a-dropdown-prompt">Reviews</span>
                       </span>
                       <i class="a-icon a-icon-dropdown"></i>
                     </span>
@@ -265,11 +260,11 @@
 
 <script>
 
-// import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating";
 
 export default {
   components: {
-    // StarRating
+    StarRating
   },
   props: ["product", "reviews", "reviewPercents"]
 

@@ -1,7 +1,7 @@
 <template>
   <!--FOOTER-->
   <footer >
-    <div style="background-color: #2e0000; width: 100%" class="navLeftFooter">
+    <div style="background-color: #2e0000; width: 100%;" class="navLeftFooter">
       <a href="#" id="navBackToTop">
         <div style="background-color: #d0e6ff" class="navFooterBackToTop">
           <span style="font-family: 'Courier New', monospace; color: black;" class="navFooterBackToTopText">Back to top</span>
@@ -105,3 +105,8 @@
   <!--/FOOTER-->
 </template>
 
+<style scoped>
+footer {
+    box-shadow: 0 50vh 0 50vh #000;
+}
+</style>

@@ -11,24 +11,24 @@
                                 <h1  class="a-spacing-small">Create Account</h1>
                                 <!--- Your Name --->
                                 <div class="a-row a-spacing-base">
-                                    <label for="ap_customer_name" class="a-form-label">Your name</label>
+                                    <label for="ap_customer_name1" class="a-form-label">Your name</label>
                                     <input type="text"
                                         v-model="name"
-                                        id="ap_customer_name" 
+                                        id="ap_customer_name1" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                 </div>
                                 <!--- Your Email --->
                                 <div class="a-row a-spacing-base">
-                                    <label for="ap_customer_name" class="a-form-label">Your Email</label>
+                                    <label for="ap_customer_name2" class="a-form-label">Your Email</label>
                                     <input v-model="email" type="email"
-                                        id="ap_customer_name" 
+                                        id="ap_customer_name2" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                 </div>
                                 <!--- Your Password --->
                                 <div class="a-row a-spacing-base">
-                                    <label for="ap_customer_name" class="a-form-label">Your Password</label>
+                                    <label for="ap_customer_name3" class="a-form-label">Your Password</label>
                                     <input v-model="password" type="password"
-                                        id="ap_customer_name" 
+                                        id="ap_customer_name3" 
                                         class="a-input-text form-control auth-authofocus auth-required-field auth-contact-verification-request-info" >
                                     <div class="a-alert-container">
                                         <div class="a-alert-content">Password must be at least 6 characters</div>
@@ -111,7 +111,7 @@ export default {
             }
 
             } catch (err) {
-                console.log(err);
+                return
             }
         }
     }

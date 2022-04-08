@@ -99,7 +99,7 @@
 
                             <div class="reviewGroup">
                                 <!----Star Ratings ---->
-                                <!-- <no-ssr>
+                                <no-ssr>
                                     <star-rating :rating="product.averageRating"
                                                 :round-start-rating="false"
                                                 :show-rating="false"
@@ -111,7 +111,7 @@
                                                 :star-points="[23,2,14,17,0,19,10,34,7,50,23,43,38,50,36,34,46,19,31,17]"
                                                 >
                                     </star-rating>
-                                </no-ssr> -->
+                                </no-ssr>
                             </div>
                             <hr style="margin-top: 10px;" />
 
@@ -278,13 +278,13 @@ button #product {
 
 <script>
 import CustomerReviews from "~/components/CustomersReviews"
-// import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating";
 import { mapActions } from "vuex";
 export default {
 
     components: {
         CustomerReviews,
-        // StarRating
+        StarRating
     },
 
     async asyncData({$axios, params}) {
@@ -308,7 +308,7 @@ export default {
                 isFollowing: following
             };
         } catch (err) {
-            console.log(err);
+            return
         }
     },
     methods : {

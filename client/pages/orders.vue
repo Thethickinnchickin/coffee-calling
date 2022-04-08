@@ -122,14 +122,15 @@
 
 
 
-            <div class="row">
+            <div style="width 100%" class="row">
+            <div v-if="!viewMoreOrders && orders.length > 1" class="row mt-3" style="margin: auto;">
+              <button style="margin: auto" class="a-button-primary" @click="onMoreOrdersClicked">More Orders</button>
+            </div>
           </div>
           <div class="col-xl-2 col-lg-1 col-md-12"></div>
         </div>
       </div>
-      <div v-if="!viewMoreOrders && orders.length > 1" class="row mt-3" style="margin: auto; width 6px">
-        <button class="a-button-primary" @click="onMoreOrdersClicked">More Orders</button>
-      </div>
+
       <div v-if="viewMoreOrders" class="row">
           <div class="col-xl-2 col-lg-1 col-md-12"></div>
           <div class="col-xl-8 col-lg-9 col-md-12">
@@ -246,19 +247,15 @@
 
 
 
-            <div class="row">
-
-
-
-
-
+          <div class="row">
+              <div v-if="viewMoreOrders && orders.length > 1" class="row mt-3" style="margin: auto;">
+                <button class="a-button-primary" style="margin: auto" @click="onMoreOrdersClicked">See Less Orders</button>
+              </div>
           </div>
           <div class="col-xl-2 col-lg-1 col-md-12"></div>
         </div>
       </div>
-      <div v-if="viewMoreOrders" class="row mt-3" style="margin: auto; width 50%">
-        <button class="a-button-primary" @click="onMoreOrdersClicked">See Less Orders</button>
-      </div>
+
     
     </div>    
     <div v-else>  
@@ -292,7 +289,6 @@ export default {
     },
     async asyncData({$axios}) {
         let response = await $axios.$get('/api/orders');
-        console.log()
 
       
         return {
@@ -301,7 +297,6 @@ export default {
     },
     methods: {
       onMoreOrdersClicked() {
-        console.log(!this.viewMoreOrders)
         if(!this.viewMoreOrders) {
           this.viewMoreOrders = true;
         } else {

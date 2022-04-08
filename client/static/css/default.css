@@ -9,6 +9,8 @@ body {
     line-height: 19px;
     color: #111;
     font-family: Arial,sans-serif;
+    height: 100vh;
+    width: 100vw;
 }
 h1 {
     font-size: 28px;
