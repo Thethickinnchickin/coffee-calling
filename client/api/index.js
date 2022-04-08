@@ -45,10 +45,7 @@ const CofeeProductsHomeRoutes = require('./routes/home/coffeeProductHome');
 const FollowingRoutes = require('./routes/followers');
 const AdminAuthRoutes = require('./routes/admin/adminAuth');
 const AdminProductsRoutes = require('./routes/admin/adminProducts');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 
-
-app.use('/api', createProxyMiddleware({ target: process.env.PORT, changeOrigin: true }))
 app.use('/api', AdminAuthRoutes);
 app.use('/api', AdminProductsRoutes);
 app.use('/api', SearchRoutes);
