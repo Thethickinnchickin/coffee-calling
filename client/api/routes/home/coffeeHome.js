@@ -7,7 +7,7 @@ const Product = require('../../models/product');
 router.get('/home/coffee', async(req, res) => {
     try {
         let productsByCategory = await Product.where('category')
-        .equals('6236b2d0bce919f6a64ecac6')
+        .equals(process.env.COFFEE)
         .populate('owner category').populate("reviews", "rating").sort('-amountSold').limit(3).exec()
         res.json({
             success: true,

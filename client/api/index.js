@@ -9,7 +9,7 @@ const app = express()
 
 //Connecting to Mongoose
 mongoose.connect(
-    "mongodb+srv://app_user:Matt1234@cluster0.khjlm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    process.env.DATABASE,
     {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
         if (err) {
             console.log(err)

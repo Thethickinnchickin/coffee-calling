@@ -16,7 +16,7 @@ router.post('/auth/user/signup', async (req, res) => {
             newUser.email = req.body.email;
             newUser.password = req.body.password
             await newUser.save();
-            let token = jwt.sign(newUser.toJSON(), "123123544444324151645252asdfasdfasdfafasysbgfdd", {
+            let token = jwt.sign(newUser.toJSON(), process.env.SECRET, {
                 expiresIn: 604000 //1 Week
             })
 
@@ -42,15 +42,15 @@ router.post('/auth/user/signup', async (req, res) => {
 //Login Route
 router.post("/auth/login", async (req, res) => {
     try {
-        let foundUser = await User.findOne({email: 'matt@email.com' })
+        let foundUser = await User.findOne({email: req.body.email })
         if (!foundUser) {
             res.status(403).json({
                 success: false,
                 message: "Authentication failed, User not found"
             })
         } else {
-            if(foundUser.comparePassword('Matt1234')) {
-                let token = jwt.sign(foundUser.toJSON(), "123123544444324151645252asdfasdfasdfafasysbgfdd", {
+            if(foundUser.comparePassword(req.body.password)) {
+                let token = jwt.sign(foundUser.toJSON(), process.env.SECRET, {
                     expiresIn: 604800 // 1 week
                 })
 

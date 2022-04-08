@@ -6,7 +6,7 @@ const Product = require('../models/product');
 //Returns products with category 'Coffee'
 router.get('/merchandise', async(req, res) => {
     try {
-        let productsByCategory = await Product.where('category').equals('6237c0d1ddbb11c5b319f44d')
+        let productsByCategory = await Product.where('category').equals(process.env.MERCHANDISE)
         .populate('owner category').populate("reviews", "rating").sort('-amountSold').exec()
         res.json({
             success: true,

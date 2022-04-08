@@ -3,8 +3,8 @@ const router = require('express').Router();
 const algoliaSearch = require('algoliasearch');
 
 const client = algoliaSearch(
-    "BWJUMGS38I",
-    "245ee9b588506da5a9d7ab5ab1d7bb93"
+    process.env.ALGOLIA_APP_ID,
+    process.env.ADMIN_SECRET
 )
 
 //mongoose algolia --> sync document to your algolia database

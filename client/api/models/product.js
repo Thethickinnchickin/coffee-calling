@@ -81,9 +81,9 @@ ProductSchema.virtual('percentPerStar').get(function() {
 
 //Adding algolia account info and using algolia for search
 ProductSchema.plugin(mongooseAngolia, {
-    appId: "BWJUMGS38I",
-    apiKey: "245ee9b588506da5a9d7ab5ab1d7bb93",
-    indexName: "E-COMMERCE-APP",
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_SECRET,
+    indexName: process.env.ALGOLIA_INDEX,
 
     selector : "title _id photo description price rating owner averageRating",
     populate: {

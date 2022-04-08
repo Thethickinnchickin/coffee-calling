@@ -108,7 +108,7 @@ export default {
         };
     },
     mounted() {
-        this.stripe = Stripe("pk_test_51KJ9lgLpMbUfE9kdjN0hBoT9JvrcX91V6MJApYOLwkBBytJQKo5guthQt9fEf6dLszEP8Um9P8Id8Y46C7XNQoI700x8p8HXm0");
+        this.stripe = Stripe(process.env.STRIPE_SECRET_KEY);
         let elements = this.stripe.elements()
         this.card = elements.create("card");
         this.card.mount(this.$refs.card)
