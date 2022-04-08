@@ -46,17 +46,6 @@ export default {
 
   ],
 
-  image: {
-    // The screen sizes predefined by `@nuxt/image`:
-    presents: {
-      mainImage: {
-        modifiers: {
-          width: 50,
-          height: 50
-        }
-      }
-    }
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
