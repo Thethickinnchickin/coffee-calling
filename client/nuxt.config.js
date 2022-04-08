@@ -54,6 +54,8 @@ export default {
     baseURL: URL,
   },
 
+  
+
   auth: {
     strategies: {
       local: {
