@@ -47,13 +47,7 @@ const AdminAuthRoutes = require('./routes/admin/adminAuth');
 const AdminProductsRoutes = require('./routes/admin/adminProducts');
 
 
-app.use('/api', proxy({
-    target: process.env.HOST,
-    changeOrigin: true,
-    router: function () {
-        return 'http://www.google.com'
-    }
-}));
+app.use('/api', createProxyMiddleware({ target: 'http://www.example.org', changeOrigin: true }))
 app.use('/api', AdminAuthRoutes);
 app.use('/api', AdminProductsRoutes);
 app.use('/api', SearchRoutes);
