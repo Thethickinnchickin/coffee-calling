@@ -6,6 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "heroku-postbuild": "npm run build",
     "generate": "nuxt generate"
   },
   "dependencies": {
@@ -38,5 +39,9 @@
   },
   "devDependencies": {
     "@nuxt/image": "^0.6.2"
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "8.1.0"
   }
 }
