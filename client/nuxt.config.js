@@ -73,6 +73,22 @@ export default {
           },
           logout: true
         }
+      },
+      admin: {
+        endpoints: {
+          login: {
+            url: '/api/auth/admin/login',
+            method: 'post',
+            propertyName: 'token',
+            rewuired: true
+          },
+          user: {
+            url: '/api/auth/admin',
+            method: 'get',
+            propertyName: 'admin',
+          },
+          logout: true
+        }
       }
     }
   },
