@@ -43,7 +43,7 @@
                                 <hr>
                                 <div class="a-row">
                                     
-                                    <b>Don't have an account?
+                                    <b>Don't have an account? FUCKKDSHFDS
                                         <nuxt-link to="/signup">Sign Up</nuxt-link>
                                     </b>
                                 </div>
