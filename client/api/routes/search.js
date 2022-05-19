@@ -4,7 +4,7 @@ const algoliaSearch = require('algoliasearch');
 
 const client = algoliaSearch(
     process.env.ALGOLIA_APP_ID,
-    process.env.ADMIN_SECRET
+    process.env.ALGOLIA_SECRET
 )
 
 //mongoose algolia --> sync document to your algolia database
