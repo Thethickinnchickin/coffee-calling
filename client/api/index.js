@@ -69,7 +69,7 @@ app.use('/api', FollowingRoutes);
 
 
 
-//Create app listening on port 3000 on localhost
+//Create app listening on port 3000 on localhost when in devlopment
 app.listen(process.env.PORT, (err) => {
     if (err) {
         console.log(err)
