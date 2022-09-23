@@ -5,7 +5,7 @@
                     <b  style="font-family: 'Courier New', monospace; color: black;" >
                         Browse for more!
                         <nuxt-link  to="/coffee">Coffee</nuxt-link>, or
-                        <nuxt-link to="/coffeeProducts">Coffee Products</nuxt-link> like grinders and pour overs or check out some 
+                        <nuxt-link to="/coffeeProducts">Coffee Products</nuxt-link> like grinders and pour overs or check out our 
                         <nuxt-link to="/merchandise">Merchandise</nuxt-link>
                     </b>
                 </p>
