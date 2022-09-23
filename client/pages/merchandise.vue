@@ -55,4 +55,8 @@ export default {
         font-size: 50px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+    img {
+      border: 2px dotted black;
+      border-radius: 10px;
+    }
 </style>

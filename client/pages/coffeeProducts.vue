@@ -1,22 +1,22 @@
 <template>
-    <main>
+  <main>
 
-        <div class="ListingPage">
-        <div class="container-fluid">
-        <h1 style="font-family: 'Courier New', monospace;"  class="coffee-title mt-3">Coffee Products</h1>
-          <div class="row">
-            <!-- - Main Content -  -->
-            <div class="col-12">
-              <TopProduct :topProduct="products[0]"/>
+      <div class="ListingPage">
+      <div class="container-fluid">
+      <h1 style="font-family: 'Courier New', monospace;"  class="coffee-title mt-3">Coffee Products</h1>
+        <div class="row">
+          <!-- - Main Content -  -->
+          <div class="col-12">
+            <TopProduct :topProduct="products[0]"/>
 
-              <div class="mainResults">
-              <ProductPageDisplay :products="products"  category="coffee"/>
-              </div>
+            <div class="mainResults">
+            <ProductPageDisplay :products="products"  category="coffee"/>
             </div>
           </div>
-        </div>        
-      </div>
-    </main>
+        </div>
+      </div>        
+    </div>
+  </main>
 </template>
 
 <script>
@@ -26,33 +26,37 @@ import StarRating from "vue-star-rating";
 import { mapActions } from "vuex";
 
 export default {
-  components: {
-    ProductPageDisplay,
-    TopProduct,
-    StarRating
-  },
+components: {
+  ProductPageDisplay,
+  TopProduct,
+  StarRating
+},
 
-  async asyncData({$axios}) {
-    try {
-      let response = await $axios.$get('/api/coffee/products');
+async asyncData({$axios}) {
+  try {
+    let response = await $axios.$get('/api/coffee/products');
 
-      return {
-        products: response.products
-      }
-    } catch (err) {
-      return
+    return {
+      products: response.products
     }
-  },
-  methods: {
-    ...mapActions(["addToBrowsingHistory"])
+  } catch (err) {
+    return
   }
+},
+methods: {
+  ...mapActions(["addToBrowsingHistory"])
+}
 }
 </script>
 
 
 <style>
-    .coffee-title {
-        font-size: 50px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
+  .coffee-title {
+      font-size: 50px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  img {
+    border: 2px dotted black;
+    border-radius: 10px;
+  }
 </style>

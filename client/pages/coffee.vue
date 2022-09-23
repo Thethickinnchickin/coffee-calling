@@ -54,6 +54,10 @@ export default {
         margin-left: 100px;
         margin-right: auto;
     }
+    img {
+      border: 2px dotted black;
+      border-radius: 10px;
+    }
 
 </style>
 
