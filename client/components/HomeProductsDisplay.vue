@@ -85,6 +85,7 @@
     height: 500px;
     max-width: 100px;
     max-height: 100px;
+    border: 2px solid black;
   }
   @media (max-width: 990px) {
     .seeMore {

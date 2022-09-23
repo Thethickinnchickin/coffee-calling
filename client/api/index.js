@@ -70,7 +70,8 @@ app.use('/api', FollowingRoutes);
 
 
 //Create app listening on port 3000 on localhost when in devlopment
-app.listen(process.env.PORT, (err) => {
+const port = process.env.API_PORT || 7000;
+app.listen(port, (err) => {
     if (err) {
         console.log(err)
     } else {

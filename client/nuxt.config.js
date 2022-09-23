@@ -112,7 +112,7 @@ export default {
   ['~/api/index.js'],
 
   server: {
-    port: 8000,
+    port: process.env.PORT,
   },
 
   router: {
